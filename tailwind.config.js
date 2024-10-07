@@ -10,9 +10,35 @@ export default {
         desktop: '1440px', // Desktops
         largeDesktop: '1920px', // Large desktop screens
       },
+      colors: {
+        colorWhite: 'hsl(var(--clr-white))',
+        colorDark: 'hsl(var(--clr-dark))',
+        colorAccent: 'hsl(var(--clr-light))',
+        DeepAccent: 'hsl(var(--clr-light) / .15)',
+      },
+      backgroundColor: {
+        dark: 'hsl(var(--clr-dark))',
+        accent: 'hsl(var(--clr-light) / .20)',
+      },
+      fontSize: {
+        'fs-900': ' 9.375rem',
+        'fs-800': '6.25rem',
+        'fs-700': '3.5rem',
+        'fs-600': '2rem',
+        'fs-500': '1.75rem',
+        'fs-400': '1.125rem',
+        'fs-300': '1rem',
+        'fs-200': '0.875rem',
+      },
     },
     fontFamily: {
-      roboto: ['Roboto', 'sans-serif'],
+      serif: ['Bellefair', 'sans-serif'],
+      'sans-cond': ['Barlow Condensed', 'sans-serif'],
+      'sans-normal': ['Barlow', ' sans-serif'],
+    },
+    fontWeight: {
+      fontbold: 700,
+      fontnormal: 400,
     },
   },
   plugins: [],

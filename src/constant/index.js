@@ -1,6 +1,6 @@
 export const navLinks = [
-  { href: '#Home', label: '00 Home' },
-  { href: '#Destination', label: '01 Destination' },
-  { href: '#Crew', label: '02 Crew' },
-  { href: '#Technology', label: '03 Technology' },
+  { path: '/Home', label: 'Home', number: '00' },
+  { path: '/Destination', label: 'Destination', number: '01' },
+  { path: '/Crew', label: 'Crew', number: '03' },
+  { path: '/Technology', label: 'Technology', number: '04' },
 ];

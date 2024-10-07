@@ -1,3 +1,17 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  :root {
+    --clr-light: 231 77% 90%;
+    --clr-white: 0 0% 100%;
+    --clr-dark: 230 35% 7%;
+  }
+}
+
+.custom-transition {
+  @apply transition-transform;
+  transition-duration: 500ms, 700ms;
+  transition-timing-function: linear, ease-in-out;
+}
