@@ -1,7 +1,7 @@
 import CustomButton from '../ui/CustomButton';
 const Home = () => {
   return (
-    <main className="container mx-auto my-20 grid grid-cols-[1fr_1fr_auto] px-32">
+    <main className="container mx-auto my-28 grid grid-cols-[1fr_1fr_auto] px-32">
       <div className="flex h-full w-2/3 flex-col">
         <h1 className="font-sans-cond text-fs-600 text-colorAccent">
           So, you want to travel to <br />
@@ -16,7 +16,7 @@ const Home = () => {
           experience!
         </p>
       </div>
-      <div className="flex h-full w-full items-center">
+      <div className="my-14 flex h-full w-full items-center">
         <CustomButton>Explore</CustomButton>
       </div>
     </main>
