@@ -14,7 +14,7 @@ export default {
         colorWhite: 'hsl(var(--clr-white))',
         colorDark: 'hsl(var(--clr-dark))',
         colorAccent: 'hsl(var(--clr-light))',
-        DeepAccent: 'hsl(var(--clr-light) / .15)',
+        deepAccent: 'hsl(var(--clr-light) / .15)',
       },
       backgroundColor: {
         dark: 'hsl(var(--clr-dark))',

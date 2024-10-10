@@ -47,7 +47,7 @@ const App = () => {
     <div
       style={{
         backgroundImage: `url(${backgroundImage})`,
-        backgroundColor: 'dark',
+        backgroundColor: 'black',
         height: '100vh',
         backgroundSize: 'cover',
       }}
