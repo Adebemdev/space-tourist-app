@@ -1,25 +1,26 @@
-import CustomButton from '../ui/CustomButton';
 const Home = () => {
   return (
-    <main className="flex max-h-screen flex-col items-center gap-24 md:mx-auto md:flex-row">
-      <div className="flex w-3/4 flex-col items-center justify-center bg-green-600 md:mx-32 md:my-10 md:w-2/3 md:place-items-start">
-        <h1 className="font-sans-cond text-fs-400 text-[#D0D6F9] md:mb-0 md:text-fs-600">
+    <div className="my-8 flex flex-col gap-16 md:my-20 md:gap-20 lg:flex-row">
+      <div className="flex flex-col items-center p-4 lg:w-full lg:items-start lg:px-40">
+        <h1 className="mb-4 font-barlow-cond text-base uppercase tracking-widest text-colorAccent md:mb-8 md:text-xl lg:mb-2">
           So, you want to travel to <br />
         </h1>
-        <span className="md:m-0md:tracking-normal mb-4 px-8 text-center font-serif text-fs-700 uppercase tracking-widest text-colorWhite md:p-0 md:text-fs-800">
+        <span className="mb-8 font-bellefair text-6xl uppercase tracking-wide text-colorWhite md:mb-8 md:text-9xl lg:mb-4">
           Space
         </span>
-        <p className="font-sans-cond leading-6 tracking-wider text-[#D0D6F9] md:leading-7 md:tracking-wide">
+        <p className="text-wrap text-center font-barlow leading-7 tracking-wide text-colorAccent md:w-1/2 md:leading-7 lg:w-full lg:text-left lg:leading-6">
           Let’s face it; if you want to go to space, you might as well genuinely
           go to outer space and not hover kind of on the edge of it. Well sit
           back, and relax because we’ll give you a truly out of this world
           experience!
         </p>
       </div>
-      <div className="flex bg-red-500 md:my-20 md:w-full">
-        <CustomButton>Explore</CustomButton>
+      <div className="mt-2 flex justify-center md:mt-32 lg:mt-36 lg:w-full">
+        <p className="flex h-40 w-40 items-center justify-center rounded-full bg-colorWhite font-bellefair text-2xl uppercase md:h-60 md:w-60 md:text-4xl">
+          Explore
+        </p>
       </div>
-    </main>
+    </div>
   );
 };
 
