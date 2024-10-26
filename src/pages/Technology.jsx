@@ -20,7 +20,7 @@ const Technology = () => {
   return (
     <div className="my-10 h-3/4 overflow-y-auto overflow-x-hidden lg:h-auto">
       <p className="mx-12 my-1 mb-12 text-center font-barlow-cond text-lg uppercase tracking-wider text-white md:my-10 md:text-left md:text-2xl lg:mx-28">
-        <span className="mr-4 text-gray-400">02</span>Space launch 101
+        <span className="mr-4 text-gray-400">03</span>Space launch 101
       </p>
       <div className="flex flex-col justify-center lg:flex-row-reverse lg:items-center lg:justify-around">
         <img

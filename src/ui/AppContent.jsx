@@ -1,84 +1,43 @@
-import React, { createContext, useState, useEffect, useContext } from 'react';
-import { useLocation } from 'react-router-dom';
+import React from 'react';
+import Navigation from '../ui/Navigation';
+import { lazy, Suspense } from 'react';
+import { Route, Routes } from 'react-router-dom';
+import { useAppContext } from '../ui/AppContext';
+import Spinner from '../ui/Spinner';
 
-const AppContext = createContext();
+const Home = lazy(() => import('../pages/Home'));
+const Crew = lazy(() => import('../pages/Crew'));
+const Technology = lazy(() => import('../pages/Technology'));
+const Destination = lazy(() => import('../pages/Destination'));
 
-const backgroundMap = {
-  '/': {
-    desktop: '/assets/home/background-home-desktop.jpg',
-    tablet: '/assets/home/background-home-tablet.jpg',
-    mobile: '/assets/home/background-home-mobile.jpg',
-  },
-  '/destination': {
-    desktop: '/assets/destination/background-destination-desktop.jpg',
-    tablet: '/assets/destination/background-destination-tablet.jpg',
-    mobile: '/assets/destination/background-destination-mobile.jpg',
-  },
-  '/crew': {
-    desktop: '/assets/crew/background-crew-desktop.jpg',
-    tablet: '/assets/crew/background-crew-tablet.jpg',
-    mobile: '/assets/crew/background-crew-mobile.jpg',
-  },
-  '/technology': {
-    desktop: '/assets/technology/background-technology-desktop.jpg',
-    tablet: '/assets/technology/background-technology-tablet.jpg',
-    mobile: '/assets/technology/background-technology-mobile.jpg',
-  },
-};
-
-export const AppProvider = ({ children }) => {
-  const [screenSize, setScreenSize] = useState('desktop');
-  const location = useLocation();
-  const [currentRoute, setCurrentRoute] = useState(location.pathname);
-  const [backgroundImage, setBackgroundImage] = useState('');
-
-  useEffect(() => {
-    const handleResize = () => {
-      if (window.innerWidth <= 375) {
-        setScreenSize('mobile');
-      } else if (window.innerWidth <= 768) {
-        setScreenSize('tablet');
-      } else {
-        setScreenSize('desktop');
-      }
-    };
-
-    window.addEventListener('resize', handleResize);
-    handleResize(); // Initial call
-
-    return () => window.removeEventListener('resize', handleResize);
-  }, []);
-
-  useEffect(() => {
-    setCurrentRoute(location.pathname);
-  }, [location]);
-
-  useEffect(() => {
-    console.log('Current route:', currentRoute);
-    console.log('Screen size:', screenSize);
-    console.log('Background map:', backgroundMap);
-
-    const route =
-      Object.keys(backgroundMap).find((path) => path === currentRoute) ||
-      Object.keys(backgroundMap).find((path) =>
-        currentRoute.startsWith(path)
-      ) ||
-      '/';
-    console.log('Matched route:', route);
-    const background = backgroundMap[route]?.[screenSize];
-    console.log('Background image:', background);
-    if (background) {
-      setBackgroundImage(background);
-    } else {
-      setBackgroundImage(null);
-    }
-  }, [currentRoute, screenSize]);
+const AppContent = () => {
+  const { backgroundImage } = useAppContext();
 
   return (
-    <AppContext.Provider value={{ screenSize, currentRoute, backgroundImage }}>
-      {children}
-    </AppContext.Provider>
+    <div
+      data-testid="background-element"
+      style={{
+        backgroundImage: `url(${backgroundImage})`,
+        backgroundColor: 'black',
+        height: '100vh',
+        width: '100vw',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat',
+        backgroundSize: 'cover',
+        transition: 'background-image 0.3s ease-in-out',
+      }}
+    >
+      <Navigation />
+      <Suspense fallback={<Spinner />}>
+        <Routes>
+          <Route path="/home" element={<Home />} />
+          <Route path="/destination" element={<Destination />} />
+          <Route path="/crew" element={<Crew />} />
+          <Route path="/technology" element={<Technology />} />
+        </Routes>
+      </Suspense>
+    </div>
   );
 };
 
-export const useAppContext = () => useContext(AppContext);
+export default AppContent;

@@ -5,7 +5,7 @@ const Crew = () => {
 
   return (
     <div className="my-8 lg:max-h-96">
-      <p className="mx-12 my-1 font-barlow-cond text-lg uppercase tracking-wider text-white md:my-10">
+      <p className="mx-12 my-1 font-barlow-cond text-lg uppercase tracking-wider text-white md:my-10 lg:mx-40">
         <span className="mr-1 text-gray-400">02</span>Meet your crew
       </p>
       <div className="flex flex-col-reverse items-center md:flex-col lg:mx-auto lg:h-96 lg:w-3/4 lg:flex-row lg:justify-between">

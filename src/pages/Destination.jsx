@@ -5,8 +5,8 @@ const Destination = () => {
     useState(planets.Moon);
 
   return (
-    <div className="">
-      <p className="my-2 text-center font-bellefair text-xl uppercase text-colorWhite md:p-4 md:text-left lg:mx-20 lg:mb-0 lg:ml-8 lg:p-0 lg:text-lg">
+    <div>
+      <p className="my-2 flex items-center justify-center font-bellefair text-xl uppercase text-colorWhite md:mx-12 md:justify-start lg:mx-28 lg:mb-16 lg:mt-4 lg:text-lg">
         <span className="mr-4 text-colorAccent">01</span>
         Pick your destination
       </p>

@@ -1,6 +1,6 @@
 import logoIcon from '../../public/assets/shared/logo.svg';
 import { navLinks } from '../constant';
-import { Link, useLocation, NavLink } from 'react-router-dom';
+import { useLocation, NavLink } from 'react-router-dom';
 import { AiOutlineClose, AiOutlineMenu } from 'react-icons/ai';
 import React, { useState } from 'react';
 
@@ -17,6 +17,7 @@ const Navigation = () => {
     <header className="relative flex h-14 max-w-[1240px] items-center justify-between md:h-24 md:min-w-full">
       <img
         src={logoIcon}
+        data-testid="logo"
         alt="logoIcon"
         className="h-16 w-16 p-4 md:h-20 md:w-20 lg:mx-8"
       />
@@ -29,8 +30,8 @@ const Navigation = () => {
             className="font-sans-cond cursor-pointer text-fs-400 uppercase md:text-fs-200"
             key={index}
           >
-            <Link
-              to={`${navlink.route}`}
+            <NavLink
+              to={navlink.route}
               className={
                 navlink.route === pathname
                   ? 'border-b-4 border-colorWhite py-10 md:py-8'
@@ -40,8 +41,8 @@ const Navigation = () => {
               <span className="mr-4 text-colorWhite md:hidden">
                 {navlink.number}
               </span>
-              <span className="text-colorAccent">{navlink.label}</span>
-            </Link>
+              <span className="text-colorAccent">{navlink.text}</span>
+            </NavLink>
           </li>
         ))}
       </ul>
@@ -49,9 +50,19 @@ const Navigation = () => {
       {/* MOblie Navigation Icon */}
       <div className="block p-4 md:hidden" onClick={handleNav}>
         {nav ? (
-          <AiOutlineClose size={40} color="white" className="h-6 w-6" />
+          <AiOutlineClose
+            data-testid="close-icon"
+            size={40}
+            color="white"
+            className="h-6 w-6"
+          />
         ) : (
-          <AiOutlineMenu size={40} color="white" className="h-6 w-6" />
+          <AiOutlineMenu
+            data-testid="menu-icon"
+            size={40}
+            color="white"
+            className="h-6 w-6"
+          />
         )}
       </div>
 
@@ -59,7 +70,7 @@ const Navigation = () => {
         className={
           nav
             ? 'fixed right-0 top-0 z-20 h-full w-[60%] border-r border-r-gray-900 bg-dark duration-500 ease-in-out md:hidden'
-            : '+w-[60%] fixed bottom-0 right-[-100%] top-0 duration-500 ease-in-out'
+            : 'fixed bottom-0 right-[-100%] top-0 w-[60%] duration-500 ease-in-out'
         }
       >
         <li className="my-10 ml-5">
@@ -72,9 +83,9 @@ const Navigation = () => {
         </li>
         {navLinks.map((navlink, index) => (
           <li className="my-10 px-8 font-bellefair text-fs-400" key={index}>
-            <NavLink to={`${navlink.route}`}>
+            <NavLink to={navlink.route}>
               <span className="text-colorWhite">{navlink.number}</span>
-              <span className="text-colorAccent">{navlink.label}</span>
+              <span className="text-colorAccent">{navlink.text}</span>
             </NavLink>
           </li>
         ))}
