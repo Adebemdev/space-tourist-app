@@ -23,7 +23,7 @@ const renderWithRouter = (ui, { route = '/' } = {}) => {
 
 describe('Navigation Component', () => {
   const navLinks = [
-    { route: '/home', text: 'Home', number: '00' },
+    { route: '/', text: 'Home', number: '00' },
     { route: '/destination', text: 'Destination', number: '01' },
     { route: '/crew', text: 'Crew', number: '03' },
     { route: '/technology', text: 'Technology', number: '04' },

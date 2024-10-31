@@ -4,7 +4,7 @@ import { useLocation } from 'react-router-dom';
 const AppContext = createContext();
 
 const backgroundMap = {
-  '/home': {
+  '/': {
     desktop: '/assets/home/background-home-desktop.jpg',
     tablet: '/assets/home/background-home-tablet.jpg',
     mobile: '/assets/home/background-home-mobile.jpg',

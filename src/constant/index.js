@@ -14,7 +14,7 @@ import Mark from '/assets/crew/image-mark-shuttleworth.png';
 import Victor from '/assets/crew/image-victor-glover.png';
 
 export const navLinks = [
-  { route: '/home', text: 'Home', number: '00' },
+  { route: '/', text: 'Home', number: '00' },
   { route: '/destination', text: 'Destination', number: '01' },
   { route: '/crew', text: 'Crew', number: '03' },
   { route: '/technology', text: 'Technology', number: '04' },
