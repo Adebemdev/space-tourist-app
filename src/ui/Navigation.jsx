@@ -37,6 +37,7 @@ const Navigation = () => {
                   ? 'border-b-4 border-colorWhite py-10 md:py-8'
                   : ''
               }
+              data-testid={`nav-link-${navlink.number}`}
             >
               <span className="mr-4 text-colorWhite md:hidden">
                 {navlink.number}

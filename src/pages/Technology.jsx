@@ -18,15 +18,25 @@ const Technology = () => {
   }, [setIsMobile]);
 
   return (
-    <div className="my-10 h-3/4 overflow-y-auto overflow-x-hidden lg:h-auto">
-      <p className="mx-12 my-1 mb-12 text-center font-barlow-cond text-lg uppercase tracking-wider text-white md:my-10 md:text-left md:text-2xl lg:mx-28">
+    <div
+      className="my-10 h-3/4 overflow-y-auto overflow-x-hidden lg:h-auto"
+      data-testid="data-tech"
+    >
+      <p
+        className="mx-12 my-1 mb-12 text-center font-barlow-cond text-lg uppercase tracking-wider text-white md:my-10 md:text-left md:text-2xl lg:mx-28"
+        data-testid="tech-paragraph"
+      >
         <span className="mr-4 text-gray-400">03</span>Space launch 101
       </p>
-      <div className="flex flex-col justify-center lg:flex-row-reverse lg:items-center lg:justify-around">
+      <div
+        className="flex flex-col justify-center lg:flex-row-reverse lg:items-center lg:justify-around"
+        data-testid="image-container"
+      >
         <img
           src={isMobile ? seletectedTech.imageMobile : seletectedTech.image}
           alt=""
           className="md:w-full lg:w-1/3"
+          data-testid="image"
         />
         <div className="flex flex-col lg:flex-row">
           <div className="my-12 mb-12 flex flex-row items-center justify-center gap-4 md:mb-4 lg:my-0 lg:flex-col lg:items-start lg:justify-between">
@@ -40,6 +50,7 @@ const Technology = () => {
                   }`}
                   key={vehicle.name}
                   onClick={() => setSelectedTech(Vehicles[index])}
+                  data-testid={`paragraph-${vehicle.id}`}
                 >
                   {index + 1}
                 </p>

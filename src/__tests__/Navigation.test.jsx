@@ -4,7 +4,6 @@ import Navigation from '../ui/Navigation';
 import { MemoryRouter, userEvent } from 'react-router-dom';
 import React from 'react';
 import { AiOutlineClose, AiOutlineMenu } from 'react-icons/ai';
-import { navLinks } from '../constant';
 
 vi.mock('../../public/assets/shared/logo.svg', () => ({
   default: 'mocked-logo.svg',
@@ -23,6 +22,13 @@ const renderWithRouter = (ui, { route = '/' } = {}) => {
 };
 
 describe('Navigation Component', () => {
+  const navLinks = [
+    { route: '/home', text: 'Home', number: '00' },
+    { route: '/destination', text: 'Destination', number: '01' },
+    { route: '/crew', text: 'Crew', number: '03' },
+    { route: '/technology', text: 'Technology', number: '04' },
+  ];
+
   describe('Desktop View', () => {
     beforeEach(() => {
       window.matchMedia = vi.fn().mockImplementation((query) => ({
@@ -43,71 +49,11 @@ describe('Navigation Component', () => {
 
     test('renders all navigation links', () => {
       renderWithRouter(<Navigation />);
-
-      console.log('navLinks:', navLinks);
-
-      screen.debug();
-
       navLinks.forEach((link) => {
-        try {
-          // Try to find by exact text content
-          const labelElement = screen.getByText(link.text, { exact: true });
-          const numberElement = screen.getByText(link.number, { exact: true });
-
-          console.log(`Found label: ${link.text}`);
-          console.log(`Found number: ${link.number}`);
-
-          expect(labelElement).toBeInTheDocument();
-          expect(numberElement).toBeInTheDocument();
-        } catch (error) {
-          console.log(`Failed to find elements for link:`, link);
-          console.log(`Error:`, error);
-          throw error;
-        }
+        const navElement = screen.getByTestId(`nav-link-${link.number}`);
+        expect(navElement).toHaveTextContent(link.text);
+        expect(navElement.getAttribute('href')).toBe(link.route);
       });
     });
   });
 });
-
-/*
-vi.mock('react-router-dom', async () => {
-  const actual = await vi.importActual('react-router-dom');
-
-  return {
-    ...actual,
-    useLocation: vi.fn(),
-  };
-});
-*/
-
-/*
-describe('Navigation Component', () => {
-  beforeEach(() => {
-    useLocation.mockReturnValue({
-      pathname: '/home',
-    });
-
-    vi.clearAllMocks();
-  });
-
-  it('renders navigation component', () => {
-    render(
-      <MemoryRouter>
-        <Navigation />
-      </MemoryRouter>
-    );
-  });
-  it('renders logo and navigation correctly', () => {
-    render(
-      <MemoryRouter>
-        <Navigation />
-      </MemoryRouter>
-    );
-
-    const logo = screen.getByTestId('logo');
-    expect(logo).toBeInTheDocument();
-    const image = screen.getByRole('img');
-    expect(image).toBeInTheDocument();
-  });
-});
-*/
